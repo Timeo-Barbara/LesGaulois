@@ -1,6 +1,7 @@
 package personnages;
 
 import objet.Equipement;
+import villagegaulois.Musee;
 
 public class Gaulois {
 	private String nom;
@@ -77,6 +78,18 @@ public class Gaulois {
 			}
 		}
 		return false;
+	}
+	
+	public void faireUneDonnation (Musee musee) {
+		if (nbTrophees>=0)
+			parler("Je donne au musee tous mes trophees");
+		while (nbTrophees>=0) {
+			musee.donnerTrophees(this, trophees[nbTrophees]);
+			System.out.println("- " + trophees[nbTrophees]);
+			trophees[nbTrophees] = null;
+			nbTrophees--;
+			
+		}
 	}
 
 	public void sePresenter() {
